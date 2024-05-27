@@ -34,7 +34,7 @@ typedef struct {
 		int square[3][3]; // Matriz 3x3 que representa el tablero
 		int x;    // Posición x del espacio vacío
 		int y;    // Posición y del espacio vacío
-		int totalMovimientos; nActions
+		int totalMovimientos;
 } State;
 typedef struct Node {
 		State state;
