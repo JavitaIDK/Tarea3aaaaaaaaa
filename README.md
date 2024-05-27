@@ -1,33 +1,70 @@
-En este *repl* puedes encontrar varios ejemplos que te pueden ayudar con las tareas de estructura.
+# Codigo para resolver 8-puzzle segun dfs o bfs
 
-## Código de Ejemplo (tarea1)
-Para ejecutar el ejemplo tarea1 primero debemos compilar (en la carpeta raíz)
-````
+<br>
+<br>
+
+Para ejecutar el codigo hay que usar estos comandos:
+````console
 gcc tdas/*.c tarea3.c -Wno-unused-result -o tarea3
 ````
 
 Y luego ejecutar:
-````
+````console
 ./tarea3
 ````
 
-## TDAs
-En la carpeta `tdas` se encuentran implementados distintos TDAs que puedes utilizar (lista, pila, cola, cola con prioridad y mapas). 
+<br>
 
-Las implementaciones no son las más eficientes (todas usan como estructura de datos una **lista enlazada**), por lo que puedes reemplazarlas por las que has realizado en los labs.
+<hr>
 
-## Otros códigos (en carpeta examples)
-Para ejecutar los distintos ejemplos que hay en la carpeta `examples`, primero debes compilarlos. Si estamos en la carpeta raíz:
-````
-gcc tdas/*.c examples/example2_menu.c -Wno-unused-result -o example
-````
-Y luego ejecutarlos:
-````
-./example
+--> El codigo te abre un menu donde tu eliges que opcion te interesa.
+
+````bash
+1) Hacer busqueda DFS
+2) Hacer busqueda BFS
+3) Salir del programa
+
 ````
 
-Se incluyen los siguientes ejemplos:
-* `example1_list`: Uso del TDA Lista, inserción y eliminación de elementos.
-* `example2_menu`: Ejemplo de menú con submenús.
-* `example3_readcsv`: Ejemplo de lectura desde un archivo csv y almacenamiento en datos estructurados.
-* `example4_map`: Ejemplo de uso del TDA mapa.
+--> Structs
+
+````c
+typedef struct {
+
+		int square[3][3]; // Matriz 3x3 que representa el tablero
+		int x;    // Posición x del espacio vacío
+		int y;    // Posición y del espacio vacío
+		int totalMovimientos; nActions
+} State;
+typedef struct Node {
+		State state;
+		struct Node* parent;
+} Node;
+````
+<br>
+
+### --> PROTOTIPOS DE FUNCIONES 
+
+`int isValidMove(int x, int y);`
+
+`void imprimirEstado(const State *estado);`
+
+`void copiarEstado(State original, State* nuevo);`
+
+`int isFinal(const State* estado);`
+
+`void move(State* actual, int opcion);`
+
+`State* transition(State* estadoOriginal, int movimiento);`
+
+`List *getAdjNodes(Node* parentNode);`
+
+`void dfs(State estadoInicial, int cont);`
+
+`void bfs(State estadoInicial, int cont);`
+<br>
+
+<hr>
+
+<br>
+### echo por javiera muñoz
